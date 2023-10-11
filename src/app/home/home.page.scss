@@ -25,3 +25,17 @@
 #container a {
   text-decoration: none;
 }
+
+@media screen and (max-width: 400px){
+  ion-content {
+    --background: rgba(211, 236, 205, 0.753);
+  }
+  
+}
+
+@media screen and (min-width: 800px){
+  ion-content {
+    --background: white;
+    --color: white;
+  }
+}

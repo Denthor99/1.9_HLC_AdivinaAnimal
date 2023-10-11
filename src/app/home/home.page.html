@@ -14,9 +14,13 @@
   </ion-header>
 
   <div id="container">
-    <ion-input label="Introduce un animal" type="text" placeholder="Ej: perro" labelPlacement="floating" [(ngModel)]="animalUsuario"></ion-input>
-    <ion-button size="small" color="secondary" *ngIf="esCorrecto==false" (click)="comprobarAnimal()">Comprobar animal</ion-button>
+    <ion-item>
+      <ion-input label="Introduce un animal" type="text" placeholder="Ej: perro" labelPlacement="floating" [(ngModel)]="animalUsuario"></ion-input>
+    </ion-item>
+      <ion-button size="small" color="secondary" *ngIf="esCorrecto==false" (click)="comprobarAnimal()">Comprobar animal</ion-button>
     <ion-button size="small" color="secondary" *ngIf="esCorrecto==true" (click)="reiniciar()">Reiniciar</ion-button>
-    <h5>{{mensajeParaUser}}</h5>
+    <ion-item>
+      <h5>{{mensajeParaUser}}</h5>
+    </ion-item>  
   </div>
 </ion-content>
