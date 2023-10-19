@@ -41,7 +41,7 @@ export class HomePage {
 
   animalAleatorio(){
     // Crearemos un array de cadenas, donde introduciremos una lista de animales
-    var listaAnimales: string[] = ["León","Gato","Camello", "Loro", "Perro","Dromedario","Gorrión","Elefante"];
+    var listaAnimales: string[] = ["Oca","Túcan","Rinoceronte","Coyote","Tortuga Marina","Caracol","León","Guepardo","Tortuga","Cerdo","Gallina","Mantis","Castor","Conejo","Ganso","Loro","Cocodrilo","Oso Panda","Mariquita","Canguro","Pato","Zarigueya","Caballo","Cabra","Oveja","Perro"];
 
     // Añadimos a la variable "animalSecreto" un valor aleatorio del array. Para ello usaremos la funcion math.random  para generar un valor aleatorio que coincida con alguno de los indices
     this.animalSecreto = listaAnimales[Math.floor(Math.random()*listaAnimales.length)];

@@ -30,6 +30,10 @@
   ion-content {
     --background: rgba(211, 236, 205, 0.753);
   }
+  figure {
+    max-width: auto;
+    height: auto;
+  }
   
 }
 
@@ -37,5 +41,9 @@
   ion-content {
     --background: white;
     --color: white;
+  }
+  figure{
+    width: 450;
+    height: 400;
   }
 }
