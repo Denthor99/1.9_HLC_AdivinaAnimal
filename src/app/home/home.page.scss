@@ -46,4 +46,12 @@
     width: 450;
     height: 400;
   }
+
+  ion-input {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  }
+  ion-item{
+    transition: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    display: block;
+  }
 }
