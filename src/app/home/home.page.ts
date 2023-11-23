@@ -1,4 +1,10 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+@NgModule({
+  imports: [
+    FormsModule]
+    
+})
 
 @Component({
   selector: 'app-home',
@@ -11,7 +17,8 @@ export class HomePage {
   animalSecreto: string = "";
   animalUsuario: string = "";
   mensajeParaUser: string = "";
-  contador: number = 3;
+  contador: number = 2;
+  listaAnimales: string[] = ["Oca","Túcan","Rinoceronte","Coyote","Tortuga Marina","Caracol","León","Guepardo","Tortuga","Cerdo","Gallina","Mantis","Castor","Conejo","Ganso","Loro","Cocodrilo","Oso Panda","Mariquita","Canguro","Pato","Zarigueya","Caballo","Cabra","Oveja","Perro"];
 
   constructor() {
     // El método animalAleatorio
@@ -40,11 +47,9 @@ export class HomePage {
   }
 
   animalAleatorio(){
-    // Crearemos un array de cadenas, donde introduciremos una lista de animales
-    var listaAnimales: string[] = ["Oca","Túcan","Rinoceronte","Coyote","Tortuga Marina","Caracol","León","Guepardo","Tortuga","Cerdo","Gallina","Mantis","Castor","Conejo","Ganso","Loro","Cocodrilo","Oso Panda","Mariquita","Canguro","Pato","Zarigueya","Caballo","Cabra","Oveja","Perro"];
 
     // Añadimos a la variable "animalSecreto" un valor aleatorio del array. Para ello usaremos la funcion math.random  para generar un valor aleatorio que coincida con alguno de los indices
-    this.animalSecreto = listaAnimales[Math.floor(Math.random()*listaAnimales.length)];
+    this.animalSecreto = this.listaAnimales[Math.floor(Math.random()*this.listaAnimales.length)];
     console.log("AnimalSecreto= "+this.animalSecreto);
   }
 

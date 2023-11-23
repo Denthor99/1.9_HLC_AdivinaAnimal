@@ -14,6 +14,16 @@
   </ion-header>
 
   <div id="container">
+    <ion-list>
+      <ion-item>
+        <ion-label>Lista de Animales</ion-label>
+        <ion-select placeholder="Selecciona un animal" [(ngModel)]="animalUsuario">
+          <ion-option *ngFor="let animal of listaAnimales" [value]="animal">
+            {{animal}}
+          </ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
     <figure>
       <img src="https://img.freepik.com/vector-gratis/conjunto-animales-salvajes_1308-29055.jpg?w=1380&t=st=1697705369~exp=1697705969~hmac=c61d537bfb1fa4fab889860ce80d20111ae9f40f359224bbfba3d7f86c7310ee" width="450" height="400">
       <figcaption>Animales disponibles</figcaption>
@@ -31,5 +41,4 @@
   <ion-toolbar>
     <h6 align="center">@copyright - Todos los derechos reservados</h6>
   </ion-toolbar>
-
 </ion-footer>
