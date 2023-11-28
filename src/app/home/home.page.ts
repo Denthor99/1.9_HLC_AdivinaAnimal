@@ -1,10 +1,4 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-@NgModule({
-  imports: [
-    FormsModule]
-    
-})
 
 @Component({
   selector: 'app-home',
@@ -59,7 +53,7 @@ export class HomePage {
     this.esCorrecto = false;
     this.animalUsuario = "";
     this.mensajeParaUser = ""; 
-    this.contador = 3;
+    this.contador = 2;
   }
 
 }

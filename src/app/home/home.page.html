@@ -4,6 +4,14 @@
       Adivina el animal
     </ion-title>
   </ion-toolbar>
+  <ion-toolbar>
+    <ion-item>
+      <ion-label>Selecciona un animal:</ion-label>
+      <ion-select [(ngModel)]="animalUsuario" placeholder="Seleccione un animal">
+        <ion-select-option *ngFor="let animal of listaAnimales" [value]="animal">{{ animal }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
@@ -12,23 +20,16 @@
       <ion-title size="large">Adivina el animal</ion-title>
     </ion-toolbar>
   </ion-header>
-
   <div id="container">
-    <ion-list>
-      <ion-item>
-        <ion-label>Lista de Animales</ion-label>
-        <ion-select placeholder="Selecciona un animal" [(ngModel)]="animalUsuario">
-          <ion-option *ngFor="let animal of listaAnimales" [value]="animal">
-            {{animal}}
-          </ion-option>
-        </ion-select>
-      </ion-item>
-    </ion-list>
+        <p class="imgTitulo">Selecciona uno de los animales que te presentamos a continuación. (usa la lista con opciones de arriba si es necesario)</p>
+
     <figure>
       <img src="https://img.freepik.com/vector-gratis/conjunto-animales-salvajes_1308-29055.jpg?w=1380&t=st=1697705369~exp=1697705969~hmac=c61d537bfb1fa4fab889860ce80d20111ae9f40f359224bbfba3d7f86c7310ee" width="450" height="400">
       <figcaption>Animales disponibles</figcaption>
     </figure>
-    <div class="mensajeUser"><p>{{mensajeParaUser}}</p></div>
+    <div class="mensajeUser">
+      <p>{{mensajeParaUser}}</p>
+    </div>
     
   <ion-item>
       <ion-input label="Introduce un animal" type="text" placeholder="Ej: perro" labelPlacement="floating" [(ngModel)]="animalUsuario"></ion-input>
@@ -39,6 +40,6 @@
 </ion-content>
 <ion-footer>
   <ion-toolbar>
-    <h6 align="center">@copyright - Todos los derechos reservados</h6>
+    <h6 align="center">&#64;copyright - Todos los derechos reservados</h6>
   </ion-toolbar>
 </ion-footer>
