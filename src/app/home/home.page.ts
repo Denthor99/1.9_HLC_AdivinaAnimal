@@ -13,7 +13,7 @@ export class HomePage {
   mensajeParaUser: string = "";
   contador: number = 2;
   listaAnimales: string[] = ["Oca","Túcan","Rinoceronte","Coyote","Tortuga Marina","Caracol","León","Guepardo","Tortuga","Cerdo","Gallina","Mantis","Castor","Conejo","Ganso","Loro","Cocodrilo","Oso Panda","Mariquita","Canguro","Pato","Zarigueya","Caballo","Cabra","Oveja","Perro"];
-
+  puntosTotales: number = 0;
   constructor() {
     // El método animalAleatorio
     this.animalAleatorio();
@@ -21,11 +21,13 @@ export class HomePage {
 
   comprobarAnimal(){
     var pista: string = "";
+    var pista2: string ="";
     console.log("Click en el botón");
     console.log("animalUsuario= "+this.animalUsuario);
     if (this.animalSecreto == this.animalUsuario){
       console.log("Enhorabuena, has acertado");
       this.mensajeParaUser = "Enhorabuena, el animal secreto es " + this.animalSecreto;
+      this.sistemaPuntos();
       this.esCorrecto = true;
     } else if (this.contador != 0){
       console.log("CASI!!, Prueba otra vez");
@@ -36,7 +38,8 @@ export class HomePage {
       console.log("PISTA");
       this.animalUsuario ="";
       pista = this.animalSecreto[0] + this.animalSecreto [1];
-      this.mensajeParaUser = "PISTA: Empieza por " + pista;
+      pista2=this.animalSecreto[this.animalSecreto.length-1];
+      this.mensajeParaUser = "PISTA: Empieza por " + pista + " y termina por " + pista2;
     }
   }
 
@@ -47,6 +50,16 @@ export class HomePage {
     console.log("AnimalSecreto= "+this.animalSecreto);
   }
 
+  sistemaPuntos(){
+    if(this.contador === 2){
+      this.puntosTotales+=100;
+    } else if(this.contador===1){
+      this.puntosTotales +=50;
+    } else{
+      this.puntosTotales +=25;
+    }
+  }
+
   reiniciar(){  
     this.animalSecreto = ""; 
     this.animalAleatorio();
@@ -54,6 +67,15 @@ export class HomePage {
     this.animalUsuario = "";
     this.mensajeParaUser = ""; 
     this.contador = 2;
+  }
+  reiniciarPuntos(){
+    this.animalSecreto = ""; 
+    this.animalAleatorio();
+    this.esCorrecto = false;
+    this.animalUsuario = "";
+    this.mensajeParaUser = ""; 
+    this.contador = 2;
+    this.puntosTotales = 0;
   }
 
 }

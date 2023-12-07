@@ -1,14 +1,20 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Adivina el animal
+    <ion-title class="tituloSitio"> Adivina el animal </ion-title>
+    <ion-title class="ion-text-end puntos">
+      Puntos: {{puntosTotales}}
     </ion-title>
   </ion-toolbar>
   <ion-toolbar>
     <ion-item>
       <ion-label>Selecciona un animal:</ion-label>
-      <ion-select [(ngModel)]="animalUsuario" placeholder="Seleccione un animal">
-        <ion-select-option *ngFor="let animal of listaAnimales" [value]="animal">{{ animal }}</ion-select-option>
+      <ion-select
+        [(ngModel)]="animalUsuario"
+        aria-label="Selecciona a un animal"
+      >
+        <ion-select-option *ngFor="let animal of listaAnimales" [value]="animal"
+          >{{ animal }}</ion-select-option
+        >
       </ion-select>
     </ion-item>
   </ion-toolbar>
@@ -21,25 +27,68 @@
     </ion-toolbar>
   </ion-header>
   <div id="container">
-        <p class="imgTitulo">Selecciona uno de los animales que te presentamos a continuación. (usa la lista con opciones de arriba si es necesario)</p>
+    <p class="imgTitulo">
+      Selecciona uno de los animales que te presentamos a continuación. (usa la
+      lista de animales para ayudarte)
+    </p>
 
     <figure>
-      <img src="https://img.freepik.com/vector-gratis/conjunto-animales-salvajes_1308-29055.jpg?w=1380&t=st=1697705369~exp=1697705969~hmac=c61d537bfb1fa4fab889860ce80d20111ae9f40f359224bbfba3d7f86c7310ee" width="450" height="400">
-      <figcaption>Animales disponibles</figcaption>
+      <img
+        src="https://img.freepik.com/vector-gratis/conjunto-animales-salvajes_1308-29055.jpg?w=1380&t=st=1697705369~exp=1697705969~hmac=c61d537bfb1fa4fab889860ce80d20111ae9f40f359224bbfba3d7f86c7310ee"
+      />
+      <!-- Dependiendo de las dimensiones de la pantalla, la descripción de la imagen desaparecerá -->
+      <figcaption class="descFoto">Animales disponibles</figcaption>
     </figure>
     <div class="mensajeUser">
       <p>{{mensajeParaUser}}</p>
     </div>
-    
-  <ion-item>
-      <ion-input label="Introduce un animal" type="text" placeholder="Ej: perro" labelPlacement="floating" [(ngModel)]="animalUsuario"></ion-input>
-  </ion-item>
-      <ion-button size="small" color="secondary" *ngIf="esCorrecto==false" (click)="comprobarAnimal()">Comprobar animal</ion-button>
-    <ion-button size="small" color="secondary" *ngIf="esCorrecto==true" (click)="reiniciar()">Reiniciar</ion-button>
+
+    <ion-item>
+      <ion-input
+        label="Introduce un animal"
+        type="text"
+        placeholder="Ej: Perro"
+        labelPlacement="floating"
+        [(ngModel)]="animalUsuario"
+      ></ion-input>
+    </ion-item>
+      <ion-button
+        size="small"
+        color="secondary"
+        *ngIf="esCorrecto==false"
+        (click)="comprobarAnimal()"
+        >Comprobar animal</ion-button
+      >
+      <!-- Elegimos el botón anterior como el elemento a duplicar. Solo se verá en la vista landscape, no tiene funcionalidad añadida y si se acierta el animal, desaparece -->
+      <ion-button
+        size="small"
+        color="secondary"
+        *ngIf="esCorrecto==false"
+        class="elementoDuplicado"
+        >Botón misterioso</ion-button
+      >
+      <!-- Este botón vuelve a generar otro animal aleatorio, para continuar con el juego -->
+      <ion-button
+        size="small"
+        color="secondary"
+        *ngIf="esCorrecto==true"
+        (click)="reiniciar()"
+        >Continuar</ion-button
+      >
+      <!-- Este botón simula el final de la partida -->
+      <ion-button
+        size="small"
+        color="secondary"
+        *ngIf="esCorrecto==true"
+        (click)="reiniciarPuntos()"
+        >Terminar</ion-button
+      >
   </div>
 </ion-content>
 <ion-footer>
   <ion-toolbar>
-    <h6 align="center">&#64;copyright - Todos los derechos reservados</h6>
+    <ion-title class="footer"
+      >&#64;copyright - Todos los derechos reservados</ion-title
+    >
   </ion-toolbar>
 </ion-footer>

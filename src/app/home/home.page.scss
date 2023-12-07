@@ -1,57 +1,147 @@
+// Estilo definido para el titulo
+.tituloSitio{
+  font-size:20px;
+  margin-top:10px;
+  text-align: center;
+}
+
+// Estilo definido para la zona de puntuación
+.puntos{
+    font-size: 18px;
+    color: goldenrod;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+// Estilo definido para el footer
+.footer{
+  font-size: 12px;
+  text-align: center;
+}
+
 #container {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  // Estilos generales para los elementos dentro de #container
+  p {
+    font-size: 16px;
+    line-height: 22px;
+    margin: 0;
+  }
+  .imgTitulo{
+    margin-top: 15px;
+  }
+
+  figure {
+    width: 100%;
+    max-width: 450px;
+    margin: 20px;
+
+    img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .descFoto {
+      margin-top: 6px;
+    }
+  }
+
+  .mensajeUser {
+    margin-top: 15px;
+
+    p {
+      color: #141414;
+      font-weight: bold;
+    }
+  }
+
+  ion-item {
+    margin-top: 10px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+
+  ion-button {
+    margin-top: 10px;
+  }
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
-}
-
-@media screen and (max-width: 400px){
+// Estilo para pantalla pequeña
+@media (max-width: 767px) {
   ion-content {
     --background: rgba(211, 236, 205, 0.753);
   }
+
   figure {
-    max-width: auto;
-    height: auto;
+    width: 65%;
+
+    .descFoto {
+      display: none;
+    }
   }
-  
+
+  .imgTitulo {
+    display: none;
+  }
+
+  .tituloSitio{
+    font-size:16px;
+  }
+  .puntos{
+    font-size: 14px;
+  }
+  ion-button{
+    
+    --border-radius:20px;
+    font-weight: bold;
+  }
 }
 
-@media screen and (min-width: 800px){
+// Estilo para una pantalla de tamaño mediano
+@media (min-width: 768px) and (max-width: 991px) {
   ion-content {
-    --background: white;
-    --color: white;
+    --background: rgb(255, 217, 146);
   }
-  figure{
-    width: 450;
-    height: 400;
+  .imgTitulo{
+    font-weight: bold;
   }
 
-  ion-input {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  figure {
+    width: 80%;
   }
-  ion-item{
-    transition: cubic-bezier(0.445, 0.05, 0.55, 0.95);
-    display: block;
+  .tituloSitio{
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .puntos{
+    font-size: 16px;
+    color:blue
+  }
+}
+
+// Estilo para una pantalla de tamaño grande (fullscreen)
+@media (min-width: 992px) {
+  ion-content {
+    --background: rgb(117, 156, 182);
+  }
+  figure {
+    width: 100%;
+  }
+  .tituloSitio{
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .puntos{
+    font-size: 18px;
+    color:rgb(255, 0, 0)
+  }
+}
+
+// Orientación de pantalla portrait. Hasta que no cambiemos de orientación, no se mostrará el botón duplicado
+@media(orientation:portrait){
+  .elementoDuplicado{
+    display:none;
   }
 }
